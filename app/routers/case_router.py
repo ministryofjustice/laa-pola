@@ -2,9 +2,9 @@ from typing import Sequence
 
 from fastapi import APIRouter, HTTPException, Depends
 
-from app.models.cases import CaseRequest, Case
-from app.models.users import User
-from app.models.categories import Category
+from app.models.case_model import CaseRequest, Case
+from app.models.user_model import User
+from app.models.category_model import Category
 from sqlmodel import Session, select
 from app.db import get_session
 from app.auth.security import get_current_active_user
@@ -72,7 +72,7 @@ async def change_category(
     """Update a case category without changing any other attributes of the case."""
     case = session.get(Case, case_id)
     if case is None:
-        raise HTTPException(status_code=404, detail="Car not found")
+        raise HTTPException(status_code=404, detail="Case not found")
     case.category = category
     session.add(case)
     session.commit()
