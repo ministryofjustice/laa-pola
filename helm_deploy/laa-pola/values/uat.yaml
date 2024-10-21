@@ -25,7 +25,7 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
   runAsUser: 1000
 
 service:
@@ -33,10 +33,15 @@ service:
   port: 8000
 
 ingress:
-  annotations: {}
+  annotations:
+    external-dns.alpha.kubernetes.io/set-identifier: "pola-laa-pola-pola-uat-green"
+    external-dns.alpha.kubernetes.io/aws-weight: "100"
   hosts:
     - host: main-pola-uat.cloud-platform.service.justice.gov.uk
       secret: false
+
+autoscaling:
+  enabled: false
 
 resources: {}
 
