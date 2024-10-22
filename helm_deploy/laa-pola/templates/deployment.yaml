@@ -35,17 +35,17 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 8027
+              containerPort: {{ .Values.image.containerPort }}
               protocol: TCP
           livenessProbe:
             tcpSocket:
-              port: 8027
+              port: {{ .Values.image.containerPort }}
             initialDelaySeconds: 10
             periodSeconds: 5
             failureThreshold: 3
           readinessProbe:
             tcpSocket:
-              port: 8027
+              port: {{ .Values.image.containerPort }}
             initialDelaySeconds: 10
             periodSeconds: 5
             failureThreshold: 3

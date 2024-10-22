@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 5
 
 image:
   repository: nginx
@@ -41,16 +41,16 @@ service:
 
 ingress:
   annotations:
-    external-dns.alpha.kubernetes.io/set-identifier: "pola-laa-pola-pola-uat-green"
+    external-dns.alpha.kubernetes.io/set-identifier: "pola-laa-pola-pola-production-green"
     external-dns.alpha.kubernetes.io/aws-weight: "100"
   hosts:
-    - host: main-pola-uat.cloud-platform.service.justice.gov.uk
+    - host: pola-production.cloud-platform.service.justice.gov.uk
       secret: false
+
+resources: {}
 
 autoscaling:
   enabled: false
-
-resources: {}
 
 nodeSelector: {}
 
