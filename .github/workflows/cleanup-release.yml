@@ -1,5 +1,5 @@
-# Uninstalls the dev helm chart when a PR is merged, or closed
-name: Clean up the dev release
+# Uninstalls the uat helm chart when a PR is merged, or closed
+name: Clean up the uat release
 
 run-name: Clean up ${{ github.head_ref || github.ref_name }}
 
@@ -11,7 +11,7 @@ on:
 jobs:
   clean-up-release:
     name: Clean up release
-    environment: dev
+    environment: uat
     runs-on: ubuntu-latest
     permissions:
         id-token: write # This is required for requesting the JWT
