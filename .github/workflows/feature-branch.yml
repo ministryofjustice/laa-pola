@@ -34,7 +34,7 @@ jobs:
   deploy-uat:
     name: UAT
     uses: ./.github/workflows/deploy.yml
-    needs: [static-analysis, test]
+    needs: [static-analysis, test, build-and-push]
     with:
       environment: uat
       ECR_REGION: ${{vars.ECR_REGION}}
