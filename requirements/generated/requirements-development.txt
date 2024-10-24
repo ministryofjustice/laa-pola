@@ -110,7 +110,7 @@ sqlalchemy[asyncio]==2.0.31
     #   sqlmodel
 sqlmodel==0.0.21
     # via -r requirements/source/requirements-base.in
-starlette==0.40.0
+starlette==0.38.6
     # via fastapi
 typing-extensions==4.12.2
     # via
