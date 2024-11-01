@@ -33,7 +33,7 @@ jobs:
 
   deploy-uat:
     name: UAT
-    uses: ./.github/workflows/deploy.yml
+    uses: ./.github/workflows/deploy-uat.yml
     needs: [static-analysis, test, build-and-push]
     with:
       environment: uat
